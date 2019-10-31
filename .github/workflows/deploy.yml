@@ -32,10 +32,9 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./dist
       - run: git push origin --tags
+      - run: echo ${GITHUB_REF}
       - name: Apply deployed version
         run: |
-          if (git diff --shortstat | grep '[0-9]'); then \
-            git add .; \
-            git commit -m "🚀 New version deployed!!"; \
-            git push origin HEAD:${GITHUB_REF}; \
-          fi
+          git add .; \
+          git commit -m "🚀 New version deployed!!"; \
+          git push origin HEAD:${GITHUB_REF};
