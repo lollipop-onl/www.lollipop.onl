@@ -32,3 +32,4 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./dist
       - run: git push origin --tags
+      - run: git push origin HEAD:${GITHUB_REF}
