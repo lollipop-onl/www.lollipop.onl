@@ -15,8 +15,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Update patch version
-        run: yarn version --patch
       - name: Setup git user
         run: |
           git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
@@ -24,6 +22,8 @@ jobs:
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update patch version
+        run: yarn version --patch
       - run: yarn install
       - run: yarn build
       - uses: peaceiris/actions-gh-pages@master
