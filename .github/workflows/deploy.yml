@@ -17,6 +17,11 @@ jobs:
           node-version: 12.x
       - name: Update patch version
         run: yarn version --patch
+      - name: Setup git user
+        run: |
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - run: yarn install
       - run: yarn build
       - uses: peaceiris/actions-gh-pages@master
@@ -26,9 +31,6 @@ jobs:
           PUBLISH_DIR: ./dist
       - name: Apply deployed version
         run: |
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           if (git diff --shortstat | grep '[0-9]'); then \
             git add .; \
             git commit -m "🚀 New version deployed!!"; \
