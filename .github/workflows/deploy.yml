@@ -31,6 +31,7 @@ jobs:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./dist
+      - run: git push origin --tags
       - name: Apply deployed version
         run: |
           if (git diff --shortstat | grep '[0-9]'); then \
