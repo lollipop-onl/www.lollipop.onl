@@ -6,7 +6,8 @@
   "author": "tamuraryoya <tamuraryoya@team-lab.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nuxt-ts dev"
+    "dev": "nuxt-ts dev",
+    "build": "nuxt-ts generate"
   },
   "dependencies": {
     "@nuxt/typescript-build": "^0.3.2",
