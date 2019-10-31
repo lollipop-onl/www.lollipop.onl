@@ -1,11 +1,13 @@
 <template lang="pug">
 div
+  pre version: {{version}}
   pre {{qiitaItems}}
 </template>
 
 <script lang="ts">
 import { Context } from '@nuxt/types';
 import { Component, Vue } from 'nuxt-property-decorator';
+import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 import { ClassMembers } from '@/types/utils';
 
@@ -13,6 +15,11 @@ import { ClassMembers } from '@/types/utils';
 export default class IndexPage extends Vue {
   /** Qiitaのポスト */
   qiitaItems: IQiitaPostItem[] = [];
+
+  /** パッケージバージョン */
+  get version() {
+    return version;
+  }
 
   /** ライフサイクル */
   async asyncData({ $axios }: Context): Promise<any> {
