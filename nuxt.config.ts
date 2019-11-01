@@ -15,6 +15,7 @@ const config: Configuration = {
         },
       },
     },
+    transpile: ['lodash-es'],
     extractCSS: isProduction,
     optimization: {
       minimize: isProduction,
