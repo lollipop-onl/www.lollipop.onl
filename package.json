@@ -7,7 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt-ts dev",
-    "build": "nuxt-ts generate"
+    "build": "nuxt-ts generate",
+    "lintjs": "eslint --ext ts,vue .",
+    "lintjs:fix": "eslint --ext ts,vue . --fix",
+    "lintcss": "stylelint \"**/*.{vue,scss}\"",
+    "lintcss:fix": "yarn lintcss --fix"
   },
   "dependencies": {
     "@nuxt/typescript-build": "^0.3.2",
@@ -24,8 +28,21 @@
     "@lollipop-onl/axios-logger": "^0.1.10",
     "@nuxt/types": "^0.3.2",
     "@nuxt/typescript-runtime": "^0.2.2",
+    "@team-lab/eslint-config": "^0.1.1",
     "@types/lodash-es": "^4.17.3",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-vue": "^5.2.3",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-rscss": "^1.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.12.0",
+    "vue-eslint-parser": "^6.0.4"
   }
 }

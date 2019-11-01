@@ -16,14 +16,14 @@ export interface IQiitaPostItem {
     private: boolean;
     updated_at: string;
     url_name: string;
-  },
-  id: string,
-  likes_count: number,
-  private: boolean,
-  reactions_count: number,
+  };
+  id: string;
+  likes_count: number;
+  private: boolean;
+  reactions_count: number;
   tags: Array<{
     name: string;
-    versions: string[];
+    versions: Array<string>;
   }>;
   title: string;
   updated_at: string;
@@ -45,6 +45,6 @@ export interface IQiitaPostItem {
     team_only: boolean;
     twitter_screen_name: string;
     website_url: string;
-  },
+  };
   page_views_count: number;
 }

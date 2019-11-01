@@ -1,0 +1,16 @@
+---
+  extends:
+    - stylelint-config-standard
+    - stylelint-rscss/config
+  plugins:
+    - stylelint-scss
+    - stylelint-order
+  rules:
+    string-quotes: single
+    no-empty-source: null
+    rscss/class-format:
+      - true
+      - maxDepth: 3
+    at-rule-no-unknown: null
+    scss/at-rule-no-unknown: true
+    order/properties-alphabetical-order: true
