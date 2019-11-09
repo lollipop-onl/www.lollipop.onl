@@ -20,7 +20,8 @@
     "types": [
       "@types/node",
       "@nuxt/vue-app",
-      "@nuxtjs/axios"
+      "@nuxtjs/axios",
+      "dayjs/plugin/relativeTime"
     ]
   },
   "exclude": ["node_modules"]
