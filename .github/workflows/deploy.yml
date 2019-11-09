@@ -28,6 +28,8 @@ jobs:
         run: yarn version --patch
       - run: yarn install
       - run: yarn build
+        env:
+          QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
       - uses: peaceiris/actions-gh-pages@master
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
