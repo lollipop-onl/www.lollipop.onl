@@ -25,7 +25,7 @@ const config: Configuration = {
     },
   },
   env: {
-    QIITA_ACCESS_TOKEN,
+    QIITA_ACCESS_TOKEN: process.server ? QIITA_ACCESS_TOKEN : '',
   },
   buildModules: ['@nuxt/typescript-build'],
   modules: ['@nuxtjs/axios'],
