@@ -1,9 +1,6 @@
 import { Configuration } from '@nuxt/types';
 import path from 'path';
 
-const {
-  QIITA_ACCESS_TOKEN = '',
-} = process.env;
 const isProduction = process.env.NODE_ENV === 'production';
 
 const config: Configuration = {
@@ -23,9 +20,6 @@ const config: Configuration = {
     optimization: {
       minimize: isProduction,
     },
-  },
-  env: {
-    QIITA_ACCESS_TOKEN: process.server ? QIITA_ACCESS_TOKEN : '',
   },
   buildModules: ['@nuxt/typescript-build'],
   modules: ['@nuxtjs/axios'],

@@ -26,8 +26,9 @@ export default class IndexPage extends Vue {
   }
 
   /** ライフサイクル */
-  async asyncData({ $axios, env }: Context): Promise<any> {
-    const { QIITA_ACCESS_TOKEN } = env;
+  async asyncData({ $axios }: Context): Promise<any> {
+    const { QIITA_ACCESS_TOKEN } = process.env;
+
     const qiitaItems = await $axios.$get<Array<IQiitaPostItem>>('https://qiita.com/api/v2/users/simochee/items', {
       headers: {
         Authorization: `Bearer ${QIITA_ACCESS_TOKEN}`,
