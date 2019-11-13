@@ -1,12 +1,14 @@
 <template lang="pug">
 div
-  pre version: {{version}}
+  p version: {{version}}
+  p(v-if="publishedAt") Last published at {{publishedAt}}
   QiitaItemList(:items="qiitaItems")
 </template>
 
 <script lang="ts">
 import { Context } from '@nuxt/types';
 import { Component, Vue } from 'nuxt-property-decorator';
+import dayjs from 'dayjs';
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
@@ -17,6 +19,9 @@ import { IQiitaPostItem } from '@/types/qiita';
   },
 })
 export default class IndexPage extends Vue {
+  /** 最終更新時のタイムスタンプ */
+  publishedAt?: dayjs.Dayjs;
+  
   /** Qiitaのポスト */
   qiitaItems: Array<IQiitaPostItem> = [];
 
@@ -35,7 +40,10 @@ export default class IndexPage extends Vue {
       },
     });
 
-    return { qiitaItems };
+    return {
+      qiitaItems,
+      publishedAt: dayjs().format('YYYY/MM/DD'),
+    };
   }
 }
 </script>
