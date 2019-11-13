@@ -42,7 +42,7 @@ export default class IndexPage extends Vue {
 
     return {
       qiitaItems,
-      publishedAt: dayjs().format('YYYY/MM/DD'),
+      publishedAt: dayjs().add(9, 'h').format('YYYY/MM/DD'),
     };
   }
 }
