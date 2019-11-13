@@ -21,7 +21,7 @@ import { IQiitaPostItem } from '@/types/qiita';
 export default class IndexPage extends Vue {
   /** 最終更新時のタイムスタンプ */
   publishedAt?: dayjs.Dayjs;
-  
+
   /** Qiitaのポスト */
   qiitaItems: Array<IQiitaPostItem> = [];
 
