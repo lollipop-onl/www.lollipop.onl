@@ -50,7 +50,7 @@ export default class IndexPage extends Vue {
   async asyncData({ $axios }: Context): Promise<any> {
     const { QIITA_ACCESS_TOKEN } = process.env;
 
-    let qiitaItems: any[] = []; 
+    let qiitaItems: Array<any> = [];
 
     try {
       qiitaItems = await $axios.$get<Array<IQiitaPostItem>>('https://qiita.com/api/v2/users/simochee/items', {
@@ -58,7 +58,9 @@ export default class IndexPage extends Vue {
           Authorization: `Bearer ${QIITA_ACCESS_TOKEN}`,
         },
       });
-    } catch (err) {}
+    } catch (err) {
+      // do nothing
+    }
 
     let npmPackages = [];
 
@@ -70,9 +72,9 @@ export default class IndexPage extends Vue {
       });
 
       npmPackages = objects;
-  
-      console.log(npmPackages);
-    } catch (err) {}
+    } catch (err) {
+      // do nothing
+    }
 
     return {
       qiitaItems,
@@ -91,7 +93,7 @@ div {
 }
 
 img {
-  max-width: 100%;
   max-height: 120px;
+  max-width: 100%;
 }
 </style>
