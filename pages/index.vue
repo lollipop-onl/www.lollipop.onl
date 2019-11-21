@@ -88,6 +88,10 @@ export default class IndexPage extends Vue {
 div {
   color: #000;
   font-size: 12px;
-  position: absolute;
+}
+
+img {
+  max-width: 100%;
+  max-height: 120px;
 }
 </style>
