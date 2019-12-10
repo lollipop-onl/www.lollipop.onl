@@ -1,10 +1,16 @@
 <template lang="pug">
-.qiita-item-list
-  QiitaItem.item(
-    v-for="item in items"
-    :key="item.id"
-    :item="item"
-  )
+div
+  .qiita-item-list
+    QiitaItem.item(
+      v-for="(item, i) in items"
+      v-show="!isCollapsed || i < 5"
+      :key="item.id"
+      :item="item"
+    )
+  button.more-button(
+    v-if="isCollapsed && items.length > 5"
+    @click.prevent="isCollapsed = false"
+  ) Show more items
 </template>
 
 <script lang="ts">
@@ -18,6 +24,9 @@ import { IQiitaPostItem } from '@/types/qiita';
   },
 })
 export default class QiitaItemList extends Vue {
+  /** すべてのポストを表示するかどうか */
+  isCollapsed = true;
+
   /** Qiitaのポストリスト */
   @Prop({ type: Array, required: true })
   readonly items!: Array<IQiitaPostItem>;
@@ -25,8 +34,8 @@ export default class QiitaItemList extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  $columns-pickup: 3;
-  $columns-posts: 4;
+  $columns-pickup: 2;
+  $columns-posts: 3;
   $gap-size: 15px;
 
   .qiita-item-list {
@@ -65,5 +74,14 @@ export default class QiitaItemList extends Vue {
         margin-right: $gap-size;
       }
     }
+  }
+
+  .more-button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin: 32px 0 auto;
+    padding: 8px 16px;
   }
 </style>

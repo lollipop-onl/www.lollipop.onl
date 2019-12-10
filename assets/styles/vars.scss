@@ -1,6 +1,13 @@
+// Colors
+
+$_font-basic: #252521;
+
 // Media Query
 
 $breakpoint: 600px;
 
 $sp: unquote('max-width: #{$breakpoint - 1px}');
 $pc: unquote('min-width: #{$breakpoint}');
+
+// Fonts
+$font-family: 'M PLUS 1p', sans-serif;

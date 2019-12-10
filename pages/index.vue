@@ -3,7 +3,7 @@
   .side(v-if="profile")
     MyProfile.profile(:profile="profile")
   .main
-    PageSection.section(title="Qiita posts")
+    PageSection.section(title="Qiita feeds")
       template(v-slot:icon)
         img.icon(src="@/assets/images/qiita-favicon.svg" alt="")
       QiitaItemList(:items="qiitaItems")
@@ -29,6 +29,7 @@ import dayjs from 'dayjs';
 import PageSection from "@/components/PageSection.vue";
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from "@/components/MyProfile.vue";
+import profile from '@/assets/data/profile.json';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 
@@ -55,10 +56,8 @@ export default class IndexPage extends Vue {
   }
 
   /** プロフィール */
-  get profile(): IQiitaPostItem['user'] | void {
-    const item = this.qiitaItems.find((item) => item.user.id === 'simochee');
-
-    return item && item.user;
+  get profile() {
+    return profile;
   }
 
   /** ライフサイクル */
@@ -103,11 +102,16 @@ export default class IndexPage extends Vue {
 
 <style lang="scss" scoped>
   .page-layout {
+    box-sizing: border-box;
     display: grid;
     grid-template:
       'side' auto
       'main' auto
       /auto;
+    margin: 0 auto;
+    max-width: 1220px;
+    padding: 0 20px;
+    width: 100%;
 
     @media ($pc) {
       grid-template:

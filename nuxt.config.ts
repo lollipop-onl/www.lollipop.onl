@@ -22,6 +22,21 @@ const config: Configuration = {
     },
   },
   buildModules: ['@nuxt/typescript-build'],
+  head: {
+    title: 'www.lollipop.onl',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Welcome to simochee\'s portfolio!',
+      },
+    ],
+    link: [
+      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=M+PLUS+1p:400,700&display=swap&subset=japanese' },
+    ],
+  },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
@@ -35,7 +50,7 @@ const config: Configuration = {
     '@/assets/styles/main.scss',
   ],
   styleResources: {
-    scss: ['@/assets/styles/vars/*.scss'],
+    scss: ['@/assets/styles/vars.scss'],
   },
 };
 

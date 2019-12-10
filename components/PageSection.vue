@@ -34,9 +34,9 @@ export default class PageSection extends Vue {
     }
 
     & > .header > .icon {
-      height: 36px;
+      height: 48px;
       object-fit: contain;
-      width: 36px;
+      width: 48px;
     }
 
     & > .header > .title {

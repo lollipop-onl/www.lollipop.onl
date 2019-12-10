@@ -51,7 +51,7 @@ export default class QiitaItem extends Vue {
     display: grid;
     grid-template:
       'thumbnail  thumbnail'  auto
-      'title      title'      auto
+      'title      title'      1fr
       'tags      updated'    auto
       /1fr        auto;
     text-decoration: none;
