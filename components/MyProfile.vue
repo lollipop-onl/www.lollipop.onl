@@ -82,6 +82,8 @@ export default class MyProfile extends Vue {
 
 <style lang="scss" scoped>
   .my-profile {
+    padding-top: 32px;
+
     & > .avatar {
       display: block;
       margin: 0 auto;
@@ -94,7 +96,7 @@ export default class MyProfile extends Vue {
 
     & > .name {
       font-size: 20px;
-      margin-top: 12px;
+      margin-top: 24px;
       text-align: center;
     }
 
@@ -138,6 +140,7 @@ export default class MyProfile extends Vue {
     & > .socials > .social::after {
       @media ($sp) {
         content: attr(data-name);
+        margin-left: 0.3em;
       }
     }
 

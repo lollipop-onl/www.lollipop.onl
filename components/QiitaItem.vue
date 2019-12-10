@@ -36,7 +36,7 @@ export default class QiitaItem extends Vue {
     const { body = '' } = this.item;
     const matches = /!\[.+\]\((.+)\)/.exec(body);
 
-    return defaultTo(matches && matches[1], 'https://raw.githubusercontent.com/lollipop-onl/vue-typed-reactive/master/vtyped.png');
+    return defaultTo(matches && matches[1], '//placehold.jp/320x320.png');
   }
 
   /** 更新日 */
@@ -151,6 +151,7 @@ export default class QiitaItem extends Vue {
       line-height: 18px;
       margin-top: 4px;
       opacity: 0.8;
+      text-align: right;
     }
   }
 </style>

@@ -13,7 +13,7 @@ div
   button.more-button(
     v-if="isCollapsed && items.length > 5"
     @click.prevent="isCollapsed = false"
-  ) Show more items
+  ) SHOW MORE POSTS
 </template>
 
 <script lang="ts">
@@ -89,9 +89,18 @@ export default class QiitaItemList extends Vue {
   .more-button {
     appearance: none;
     background: transparent;
-    border: 1px solid #ccc;
-    font-size: 18px;
-    margin: 32px 0 auto;
-    padding: 8px 16px;
+    border: 1px solid #4bb20c;
+    border-radius: 4px;
+    color: #4bb20c;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin: 32px auto 0;
+    padding: 0.5em 1.5em;
+    transition: background 0.12s ease;
+
+    &:hover {
+      background: rgba(#4bb20c, 0.1);
+    }
   }
 </style>

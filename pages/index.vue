@@ -1,25 +1,27 @@
 <template lang="pug">
-.page-layout
-  .side(v-if="profile")
-    MyProfile.profile(:profile="profile")
-  .main
-    PageSection.section(title="Qiita feeds")
-      template(v-slot:icon)
-        img.icon(src="@/assets/images/qiita-favicon.svg" alt="")
-      QiitaItemList(:items="qiitaItems")
-    PageSection.section(title="NPM Packages")
-      template(v-slot:icon)
-        img.icon(src="@/assets/images/npm-favicon.svg" alt="")
-      ul
-        li(
-          v-for="npmPackage in npmPackages"
-          v-if="npmPackage.package.version > '0.1'"
-        )
-          a(
-            :href="npmPackage.package.links.npm"
-            target="_blank"
-            rel="noopener"
-          ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
+div
+  .main-content
+    .side(v-if="profile")
+      MyProfile.profile(:profile="profile")
+    .main
+      PageSection.section(title="Qiita feeds")
+        template(v-slot:icon)
+          img.icon(src="@/assets/images/qiita-favicon.svg" alt="")
+        QiitaItemList(:items="qiitaItems")
+      PageSection.section(title="NPM Packages")
+        template(v-slot:icon)
+          img.icon(src="@/assets/images/npm-favicon.svg" alt="")
+        ul
+          li(
+            v-for="npmPackage in npmPackages"
+            v-if="npmPackage.package.version > '0.1'"
+          )
+            a(
+              :href="npmPackage.package.links.npm"
+              target="_blank"
+              rel="noopener"
+            ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
+  TheFooter
 </template>
 
 <script lang="ts">
@@ -29,6 +31,7 @@ import dayjs from 'dayjs';
 import PageSection from '@/components/PageSection.vue';
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from "@/components/MyProfile.vue";
+import TheFooter from "@/components/TheFooter.vue";
 import profile from '@/assets/data/profile.json';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
@@ -38,6 +41,7 @@ import { IQiitaPostItem } from '@/types/qiita';
     PageSection,
     QiitaItemList,
     MyProfile,
+    TheFooter,
   },
 })
 export default class IndexPage extends Vue {
@@ -101,14 +105,14 @@ export default class IndexPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .page-layout {
+  .main-content {
     box-sizing: border-box;
     display: grid;
     grid-template:
       'side' auto
       'main' auto
       /auto;
-    margin: 0 auto;
+    margin: 0 auto 56px;
     max-width: 1220px;
     padding: 0 20px;
     width: 100%;
@@ -125,6 +129,10 @@ export default class IndexPage extends Vue {
       @media ($pc) {
         margin-right: 24px;
       }
+
+      @media ($sp) {
+        margin-bottom: 24px;
+      }
     }
 
     & > .side > .profile {
@@ -139,7 +147,7 @@ export default class IndexPage extends Vue {
       grid-area: main;
     }
 
-    & > .main > .section {
+    & > .main > .section:not(:last-child) {
       margin-bottom: 48px;
     }
   }
