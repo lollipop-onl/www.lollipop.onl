@@ -1,12 +1,16 @@
 <template lang="pug">
-ExternalLink.qiita-item(:href="item.url")
+ExternalLink.qiita-item(
+  v-on="$listeners"
+  :href="item.url"
+)
   .thumbnail
     .skeleton
     img.image(:src="thumbnail")
-    .likes(v-if="item.likes_count > 0") {{item.likes_count}} likes!
+  .detail
+    ul.tags
+      li.tag(v-for="tag in item.tags") {{tag.name}}
+    .likes(v-if="item.likes_count > 0") {{item.likes_count}}
   .title {{item.title}}
-  ul.tags
-    li.tag(v-for="tag in item.tags") {{tag.name}}
   .updated {{updatedAt}}
 </template>
 
@@ -32,7 +36,7 @@ export default class QiitaItem extends Vue {
     const { body = '' } = this.item;
     const matches = /!\[.+\]\((.+)\)/.exec(body);
 
-    return defaultTo(matches && matches[1], 'https://placehold.jp/320x320.png');
+    return defaultTo(matches && matches[1], 'https://raw.githubusercontent.com/lollipop-onl/vue-typed-reactive/master/vtyped.png');
   }
 
   /** 更新日 */
@@ -50,14 +54,16 @@ export default class QiitaItem extends Vue {
     color: $_font-basic;
     display: grid;
     grid-template:
-      'thumbnail  thumbnail'  auto
-      'title      title'      1fr
-      'tags      updated'    auto
-      /1fr        auto;
+      'thumbnail' auto
+      'detail'    0
+      'title'     1fr
+      'updated'   auto
+      /auto;
     text-decoration: none;
 
     & > .thumbnail {
       grid-area: thumbnail;
+      overflow: hidden;
       position: relative;
       width: 100%;
     }
@@ -82,10 +88,54 @@ export default class QiitaItem extends Vue {
       width: 100%;
     }
 
-    & > .thumbnail > .likes {
-      bottom: 0;
-      position: absolute;
-      right: 0;
+    & > .detail {
+      align-items: center;
+      align-self: end;
+      display: flex;
+      flex-wrap: nowrap;
+      grid-area: detail;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    & > .detail > .likes {
+      background: rgba(#4bb20c, 0.9);
+      box-sizing: border-box;
+      color: #fff;
+      flex-shrink: 0;
+      font-size: 14px;
+      height: 20px;
+      line-height: 20px;
+      padding: 0 1em;
+    }
+
+    & > .detail > .likes::after {
+      content: 'likes';
+      font-size: 10px;
+      margin-left: 0.5em;
+    }
+
+    & > .detail > .tags {
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      height: 20px;
+      padding-left: 2px;
+    }
+
+    & > .detail > .tags > .tag {
+      background: rgba(#ccc, 0.8);
+      border-radius: 4px;
+      box-shadow: 0 2px 5px -2px rgba(#000, 0.4);
+      box-sizing: border-box;
+      font-size: 11px;
+      line-height: 18px;
+      margin: 0 4px 10px 0;
+      padding: 0 8px;
     }
 
     & > .title {
@@ -95,31 +145,12 @@ export default class QiitaItem extends Vue {
       margin: 8px 0 4px;
     }
 
-    & > .tags {
-      align-items: flex-start;
-      display: flex;
-      flex-wrap: wrap;
-      grid-area: tags;
-      overflow: hidden;
-    }
-
-    & > .tags > .tag {
-      background: #ccc;
-      border-radius: 2px;
-      box-sizing: border-box;
-      font-size: 11px;
-      line-height: 18px;
-      margin: 4px 4px 0 0;
-      overflow: hidden;
-      padding: 0 8px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
     & > .updated {
+      font-size: 12px;
       grid-area: updated;
       line-height: 18px;
       margin-top: 4px;
+      opacity: 0.8;
     }
   }
 </style>

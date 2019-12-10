@@ -1,5 +1,10 @@
 <template lang="pug">
-  a(target="_blank" rel="noopener")
+  a(
+    v-bind="$attrs"
+    v-on="$listeners"
+    target="_blank"
+    rel="noopener"
+  )
     slot
 </template>
 

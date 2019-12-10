@@ -6,6 +6,9 @@ div
       v-show="!isCollapsed || i < 5"
       :key="item.id"
       :item="item"
+      :class="{ '-inactive': activeItemId && activeItemId !== item.id }"
+      @mouseenter="activeItemId = item.id"
+      @mouseleave="activeItemId = null"
     )
   button.more-button(
     v-if="isCollapsed && items.length > 5"
@@ -27,6 +30,9 @@ export default class QiitaItemList extends Vue {
   /** すべてのポストを表示するかどうか */
   isCollapsed = true;
 
+  /** アクティブな記事ID */
+  activeItemId: string | null = null;
+
   /** Qiitaのポストリスト */
   @Prop({ type: Array, required: true })
   readonly items!: Array<IQiitaPostItem>;
@@ -43,12 +49,16 @@ export default class QiitaItemList extends Vue {
     flex-wrap: wrap;
 
     & > .item {
-      transition: opacity 0.3s ease;
+      transition: opacity 0.12s ease;
       width: 100%;
 
       @media ($pc) {
         width: calc(#{100% / $columns-posts} - #{$gap-size * ($columns-posts - 1) / $columns-posts});
       }
+    }
+
+    & > .item.-inactive {
+      opacity: 0.5;
     }
 
     & > .item:nth-child(-n + #{$columns-pickup}) {
@@ -59,13 +69,13 @@ export default class QiitaItemList extends Vue {
 
     & > .item:not(:nth-child(-n + #{$columns-pickup})) {
       @media ($pc) {
-        margin-top: $gap-size;
+        margin-top: $gap-size * 1.5;
       }
     }
 
     & > .item:not(:first-child) {
       @media ($sp) {
-        margin-top: $gap-size;
+        margin-top: $gap-size * 1.5;
       }
     }
 
