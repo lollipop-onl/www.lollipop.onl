@@ -1,9 +1,5 @@
 <template lang="pug">
-a.qiita-item(
-  :href="item.url"
-  target="_blank"
-  rel="noopener"
-)
+ExternalLink.qiita-item(:href="item.url")
   .thumbnail
     .skeleton
     img.image(:src="thumbnail")
@@ -18,9 +14,14 @@ a.qiita-item(
 import { Component, Prop, Vue } from 'nuxt-property-decorator';
 import { defaultTo } from 'lodash-es';
 import dayjs from 'dayjs';
+import ExternalLink from "@/components/ExternalLink.vue";
 import { IQiitaPostItem } from '@/types/qiita';
 
-@Component
+@Component({
+  components: {
+    ExternalLink,
+  },
+})
 export default class QiitaItem extends Vue {
   /** Qiitaのポスト */
   @Prop({ type: Object, required: true })
