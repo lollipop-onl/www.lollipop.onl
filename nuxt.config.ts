@@ -22,12 +22,21 @@ const config: Configuration = {
     },
   },
   buildModules: ['@nuxt/typescript-build'],
-  modules: ['@nuxtjs/axios'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+  ],
   plugins: [
     '@/plugins/libs/axios-logger',
     '@/plugins/libs/dayjs',
   ],
-  css: ['reset.css'],
+  css: [
+    'reset.css',
+    '@/assets/styles/main.scss',
+  ],
+  styleResources: {
+    scss: ['@/assets/styles/vars/*.scss'],
+  },
 };
 
 module.exports = config;

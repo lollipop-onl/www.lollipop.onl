@@ -16,6 +16,7 @@ div
         target="_blank"
         rel="noopener"
       ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
+  pre {{npmPackages}}
 </template>
 
 <script lang="ts">
