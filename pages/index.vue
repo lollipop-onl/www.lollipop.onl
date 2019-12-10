@@ -3,19 +3,23 @@ div
   h1 www.lollipop.onl
   p version: {{version}}
   p(v-if="publishedAt") Last published at {{publishedAt}}
-  h2 Qiita posts
-  QiitaItemList(:items="qiitaItems")
-  h2 NPM Packages
-  ul
-    li(
-      v-for="npmPackage in npmPackages"
-      v-if="npmPackage.package.version > '0.1'"
-    )
-      a(
-        :href="npmPackage.package.links.npm"
-        target="_blank"
-        rel="noopener"
-      ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
+  PageSection(title="Qiita posts")
+    template(v-slot:icon)
+      img.icon(src="@/assets/images/qiita-favicon.svg" alt="")
+    QiitaItemList(:items="qiitaItems")
+  PageSection(title="NPM Packages")
+    template(v-slot:icon)
+      img.icon(src="@/assets/images/npm-favicon.svg" alt="")
+    ul
+      li(
+        v-for="npmPackage in npmPackages"
+        v-if="npmPackage.package.version > '0.1'"
+      )
+        a(
+          :href="npmPackage.package.links.npm"
+          target="_blank"
+          rel="noopener"
+        ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
   pre {{npmPackages}}
 </template>
 
@@ -23,12 +27,14 @@ div
 import { Context } from '@nuxt/types';
 import { Component, Vue } from 'nuxt-property-decorator';
 import dayjs from 'dayjs';
+import PageSection from "@/components/PageSection.vue";
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 
 @Component({
   components: {
+    PageSection,
     QiitaItemList,
   },
 })
@@ -88,13 +94,4 @@ export default class IndexPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-div {
-  color: #000;
-  font-size: 12px;
-}
-
-img {
-  max-height: 120px;
-  max-width: 100%;
-}
 </style>
