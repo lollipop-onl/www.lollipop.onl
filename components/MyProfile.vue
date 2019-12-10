@@ -44,9 +44,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator';
-import ExternalLink from "@/components/ExternalLink.vue";
+import ExternalLink from '@/components/ExternalLink.vue';
 import profile from '@/assets/data/profile.json';
-import {IQiitaPostItem} from "@/types/qiita";
+import { IQiitaPostItem } from '@/types/qiita';
 
 @Component({
   components: {
@@ -75,7 +75,7 @@ export default class MyProfile extends Vue {
 
   /** npmアカウントURL */
   get npmUrl() {
-    return `https://npmjs.com/~${this.profile.npm}`
+    return `https://npmjs.com/~${this.profile.npm}`;
   }
 }
 </script>
