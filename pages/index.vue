@@ -26,7 +26,7 @@
 import { Context } from '@nuxt/types';
 import { Component, Vue } from 'nuxt-property-decorator';
 import dayjs from 'dayjs';
-import PageSection from "@/components/PageSection.vue";
+import PageSection from '@/components/PageSection.vue';
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from "@/components/MyProfile.vue";
 import profile from '@/assets/data/profile.json';
