@@ -18,7 +18,7 @@ ExternalLink.qiita-item(
 import { Component, Prop, Vue } from 'nuxt-property-decorator';
 import { defaultTo } from 'lodash-es';
 import dayjs from 'dayjs';
-import ExternalLink from "@/components/ExternalLink.vue";
+import ExternalLink from '@/components/ExternalLink.vue';
 import { IQiitaPostItem } from '@/types/qiita';
 
 @Component({
