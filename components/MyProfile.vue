@@ -82,8 +82,6 @@ export default class MyProfile extends Vue {
 
 <style lang="scss" scoped>
   .my-profile {
-    padding-top: 32px;
-
     & > .avatar {
       display: block;
       margin: 0 auto;

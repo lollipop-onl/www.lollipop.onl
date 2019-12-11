@@ -49,6 +49,7 @@ export default class TheFooter extends Vue {
   .the-footer {
     background: #47494e;
     height: 1000px;
+    padding-top: 32px;
     width: 100%;
 
     & > .fugu {

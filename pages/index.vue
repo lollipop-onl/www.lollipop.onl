@@ -125,6 +125,7 @@ export default class IndexPage extends Vue {
 
     & > .side {
       grid-area: side;
+      padding: 32px 0;
 
       @media ($pc) {
         margin-right: 24px;
