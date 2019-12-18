@@ -14,37 +14,36 @@
     "lintcss:fix": "yarn lintcss --fix"
   },
   "dependencies": {
-    "@nuxt/typescript-build": "^0.3.2",
-    "@nuxtjs/axios": "^5.8.0",
+    "@nuxt/typescript-build": "^0.5.1",
+    "@nuxtjs/axios": "^5.9.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "dayjs": "^1.8.17",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.13.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.11.0",
     "nuxt-property-decorator": "^2.5.0",
     "pug": "^2.0.4",
-    "reset.css": "^2.0.2",
-    "typescript": "^3.6.4"
+    "reset.css": "^2.0.2"
   },
   "devDependencies": {
-    "@lollipop-onl/axios-logger": "^0.1.10",
-    "@nuxt/types": "^0.3.2",
-    "@nuxt/typescript-runtime": "^0.2.2",
+    "@lollipop-onl/axios-logger": "^0.1.11",
+    "@nuxt/types": "^0.5.6",
+    "@nuxt/typescript-runtime": "^0.3.2",
     "@team-lab/eslint-config": "^0.1.1",
     "@types/lodash-es": "^4.17.3",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.2",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-vue": "^6.0.1",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^8.0.0",
-    "stylelint": "^11.1.1",
+    "stylelint": "^12.0.0",
     "stylelint-config-rscss": "^1.0.0",
     "stylelint-order": "^3.1.1",
-    "stylelint-scss": "^3.12.0",
-    "vue-eslint-parser": "^6.0.4"
+    "stylelint-scss": "^3.13.0",
+    "vue-eslint-parser": "^7.0.0"
   }
 }

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["dom", "esnext"],
-    "target": "esnext",
+    "target": "es2018",
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -19,7 +19,7 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/vue-app",
+      "@nuxt/types",
       "@nuxtjs/axios",
       "dayjs/plugin/relativeTime"
     ]
