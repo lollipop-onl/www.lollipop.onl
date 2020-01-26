@@ -11,16 +11,8 @@ div
       PageSection.section(title="NPM Packages")
         template(v-slot:icon)
           img.icon(src="@/assets/images/npm-favicon.svg" alt="")
-        ul
-          li(
-            v-for="npmPackage in npmPackages"
-            v-if="npmPackage.package.version > '0.1'"
-          )
-            a(
-              :href="npmPackage.package.links.npm"
-              target="_blank"
-              rel="noopener"
-            ) {{npmPackage.package.name}} (v{{npmPackage.package.version}})
+        NPMPackageList(:npmPackages="npmPackages")
+      PageSection.section(title="Publications")
   TheFooter
 </template>
 
@@ -32,15 +24,18 @@ import PageSection from '@/components/PageSection.vue';
 import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from '@/components/MyProfile.vue';
 import TheFooter from '@/components/TheFooter.vue';
+import NPMPackageList from '@/components/NPMPackageList.vue';
 import profile from '@/assets/data/profile.json';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
+import { INPMPackage } from "@/types/npm";
 import EmitMixin from "@/mixins/Emit";
 
 @Component({
   components: {
     PageSection,
     QiitaItemList,
+    NPMPackageList,
     MyProfile,
     TheFooter,
   },
@@ -54,7 +49,7 @@ export default class IndexPage extends Vue {
   qiitaItems: Array<IQiitaPostItem> = [];
 
   /** npmのPackage */
-  npmPackages: Array<any> = [];
+  npmPackages: Array<INPMPackage> = [];
 
   /** パッケージバージョン */
   get version() {
@@ -91,7 +86,9 @@ export default class IndexPage extends Vue {
         },
       });
 
-      npmPackages = objects;
+      npmPackages = objects.filter((npmPackage: INPMPackage) => (
+        !npmPackage.package.version.startsWith('0.0')
+      ));
     } catch (err) {
       // do nothing
     }
