@@ -30,7 +30,6 @@ import profile from '@/assets/data/profile.yml';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 import { INPMPackage } from "@/types/npm";
-import EmitMixin from "@/mixins/Emit";
 
 @Component({
   components: {
@@ -40,7 +39,6 @@ import EmitMixin from "@/mixins/Emit";
     MyProfile,
     TheFooter,
   },
-  mixins: [EmitMixin],
 })
 export default class IndexPage extends Vue {
   /** 最終更新時のタイムスタンプ */
