@@ -36,11 +36,6 @@ export default class QiitaItem extends Vue {
     const { body = '' } = this.item;
     const matches = /!\[[^[\]]*\]\(([^()]*)\)/.exec(body);
 
-    console.groupCollapsed(this.item.title);
-    console.log(matches);
-    console.log(body);
-    console.groupEnd();
-
     return defaultTo(matches && matches[1], '//placehold.jp/320x320.png');
   }
 

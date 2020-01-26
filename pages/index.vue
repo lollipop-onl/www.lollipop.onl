@@ -12,6 +12,7 @@ div
         template(v-slot:icon)
           img.icon(src="@/assets/images/npm-favicon.svg" alt="")
         NPMPackageList(:npmPackages="npmPackages")
+      PageSection.section(title="Web tools")
       PageSection.section(title="Publications")
   TheFooter
 </template>
@@ -25,7 +26,7 @@ import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from '@/components/MyProfile.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import NPMPackageList from '@/components/NPMPackageList.vue';
-import profile from '@/assets/data/profile.json';
+import profile from '@/assets/data/profile.yml';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 import { INPMPackage } from "@/types/npm";

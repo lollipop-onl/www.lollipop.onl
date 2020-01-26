@@ -6,6 +6,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 const config: Configuration = {
   mode: 'universal',
   build: {
+    extend(config) {
+      config.module!.rules!.push({
+        test: /\.ya?ml$/,
+        use: 'js-yaml-loader',
+      });
+    },
     loaders: {
       scss: {
         sassOptions: {

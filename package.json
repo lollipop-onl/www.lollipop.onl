@@ -19,6 +19,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "dayjs": "^1.8.17",
     "dompurify": "^2.0.7",
+    "js-yaml-loader": "^1.2.2",
     "jsdom": "^16.0.1",
     "lodash-es": "^4.17.15",
     "marked": "^0.8.0",

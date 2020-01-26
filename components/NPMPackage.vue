@@ -6,7 +6,7 @@
     .detail
       .version v{{ npmPackage.package.version }}
       .updated Last publish: {{ modifiedAt }}
-      ExternalLink.link(:href="npmPackage.package.links.npm") Browse on npm page
+      ExternalLink.link(:href="npmPackage.package.links.npm") Browse on npm
     .description(v-html="description")
 </template>
 

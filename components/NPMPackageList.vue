@@ -2,6 +2,7 @@
   ul.npm-package-list
     NPMPackage.package(
       v-for="npmPackage in npmPackages"
+      :key="npmPackage.package.name"
       :npmPackage="npmPackage"
     )
 </template>

@@ -39,14 +39,15 @@
           src="@/assets/images/npm-favicon.svg"
           :alt="profile.npm"
         )
-    p.description(v-for="line in profile.description.split('\\n')") {{line}}
+    p.description(v-html="description")
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator';
+import marked from 'marked';
+import sanitizeHtml from 'sanitize-html';
 import ExternalLink from '@/components/ExternalLink.vue';
-import profile from '@/assets/data/profile.json';
-import { IQiitaPostItem } from '@/types/qiita';
+import profile from '@/assets/data/profile.yml';
 
 @Component({
   components: {
@@ -76,6 +77,11 @@ export default class MyProfile extends Vue {
   /** npmアカウントURL */
   get npmUrl() {
     return `https://npmjs.com/~${this.profile.npm}`;
+  }
+
+  /** 紹介文 */
+  get description() {
+    return sanitizeHtml(marked(this.profile.description));
   }
 }
 </script>
@@ -151,15 +157,16 @@ export default class MyProfile extends Vue {
     }
 
     & > .description {
-      font-size: $font-md;
+      margin-top: 24px;
+    }
+
+    // stylelint-disable-next-line rscss/no-descendant-combinator
+    & > .description /deep/ p {
+      font-size: $font-sm;
       line-height: 1.5;
       margin-top: 0.5em;
       text-align: center;
       white-space: pre-wrap;
-    }
-
-    & > .description:first-of-type {
-      margin-top: 20px;
     }
   }
 </style>
