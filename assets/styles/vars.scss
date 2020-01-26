@@ -3,11 +3,15 @@
 $_font-basic: #252521;
 
 // Media Query
-
 $breakpoint: 600px;
 
 $sp: unquote('max-width: #{$breakpoint - 1px}');
 $pc: unquote('min-width: #{$breakpoint}');
 
 // Fonts
-$font-family: 'M PLUS 1p', sans-serif;
+$font-family: Ronde-B-Square, sans-serif;
+$font-xs: 12px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-lg: 20px;
+$font-xl: 24px;

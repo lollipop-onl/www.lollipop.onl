@@ -94,7 +94,7 @@ export default class QiitaItemList extends Vue {
     color: #4bb20c;
     cursor: pointer;
     display: block;
-    font-size: 16px;
+    font-size: $font-sm;
     margin: 32px auto 0;
     padding: 0.5em 1.5em;
     transition: background 0.12s ease;

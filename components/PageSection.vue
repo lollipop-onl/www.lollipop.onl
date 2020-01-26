@@ -40,7 +40,7 @@ export default class PageSection extends Vue {
     }
 
     & > .header > .title {
-      font-size: 16px;
+      font-size: $font-lg;
       margin-left: 12px;
     }
 

@@ -110,15 +110,15 @@ export default class QiitaItem extends Vue {
       box-sizing: border-box;
       color: #fff;
       flex-shrink: 0;
-      font-size: 14px;
+      font-size: $font-md;
       height: 20px;
       line-height: 20px;
-      padding: 0 1em;
+      padding: 0 10px;
     }
 
     & > .detail > .likes::after {
       content: 'likes';
-      font-size: 10px;
+      font-size: $font-xs;
       margin-left: 0.5em;
     }
 
@@ -137,7 +137,7 @@ export default class QiitaItem extends Vue {
       border-radius: 4px;
       box-shadow: 0 2px 5px -2px rgba(#000, 0.4);
       box-sizing: border-box;
-      font-size: 11px;
+      font-size: $font-sm;
       line-height: 18px;
       margin: 0 4px 10px 0;
       padding: 0 8px;
@@ -146,7 +146,7 @@ export default class QiitaItem extends Vue {
     & > .title {
       -webkit-box-orient: vertical;
       display: -webkit-box;
-      font-size: 14px;
+      font-size: $font-md;
       grid-area: title;
       -webkit-line-clamp: 2;
       line-height: 1.5;
@@ -155,7 +155,7 @@ export default class QiitaItem extends Vue {
     }
 
     & > .updated {
-      font-size: 12px;
+      font-size: $font-sm;
       grid-area: updated;
       line-height: 18px;
       margin-top: 4px;

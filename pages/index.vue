@@ -26,7 +26,7 @@ div
 
 <script lang="ts">
 import { Context } from '@nuxt/types';
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, On, Vue } from 'nuxt-property-decorator';
 import dayjs from 'dayjs';
 import PageSection from '@/components/PageSection.vue';
 import QiitaItemList from '@/components/QiitaItemList.vue';
@@ -35,6 +35,7 @@ import TheFooter from '@/components/TheFooter.vue';
 import profile from '@/assets/data/profile.json';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
+import EmitMixin from "@/mixins/Emit";
 
 @Component({
   components: {
@@ -43,6 +44,7 @@ import { IQiitaPostItem } from '@/types/qiita';
     MyProfile,
     TheFooter,
   },
+  mixins: [EmitMixin],
 })
 export default class IndexPage extends Vue {
   /** 最終更新時のタイムスタンプ */
@@ -100,6 +102,11 @@ export default class IndexPage extends Vue {
       publishedAt: dayjs().add(9, 'h')
         .format('YYYY/MM/DD'),
     };
+  }
+
+  @On('test')
+  onTest(arg: any) {
+    console.log('happen', arg);
   }
 }
 </script>

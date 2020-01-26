@@ -93,13 +93,13 @@ export default class MyProfile extends Vue {
     }
 
     & > .name {
-      font-size: 20px;
+      font-size: $font-lg;
       margin-top: 24px;
       text-align: center;
     }
 
     & > .fullname {
-      font-size: 14px;
+      font-size: $font-sm;
       margin-top: 5px;
       opacity: 0.7;
       text-align: center;
@@ -120,7 +120,7 @@ export default class MyProfile extends Vue {
     & > .socials > .social {
       align-items: center;
       display: flex;
-      font-size: 14px;
+      font-size: $font-sm;
       position: relative;
       text-decoration: none;
     }
@@ -151,7 +151,7 @@ export default class MyProfile extends Vue {
     }
 
     & > .description {
-      font-size: 14px;
+      font-size: $font-md;
       line-height: 1.5;
       margin-top: 0.5em;
       text-align: center;

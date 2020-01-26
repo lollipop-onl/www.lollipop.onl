@@ -34,7 +34,7 @@ const config: Configuration = {
       },
     ],
     link: [
-      { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=M+PLUS+1p:400,700&display=swap&subset=japanese' },
+      { rel: 'stylesheet', href: '//lollipop-onl.github.io/webfonts.lollipop.onl/Ronde-B-Square.css' },
     ],
   },
   modules: [
