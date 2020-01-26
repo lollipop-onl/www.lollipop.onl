@@ -70,7 +70,7 @@ export default class NPMPackage extends Vue {
       'detail description'  auto
       /180px  1fr;
 
-    @media only screen and ($sp) {
+    @media ($sp) {
       grid-template:
         'header'      auto
         'detail'      auto
@@ -94,7 +94,7 @@ export default class NPMPackage extends Vue {
       color: transparent;
       content: '@lollipop-onl';
       font-size: $font-lg;
-      height: 1px;
+      height: 2px;
       left: 0;
       overflow: hidden;
       position: absolute;
@@ -115,7 +115,7 @@ export default class NPMPackage extends Vue {
       text-align: center;
       width: 5em;
 
-      @media only screen and ($sp) {
+      @media ($sp) {
         display: none;
       }
     }
@@ -125,16 +125,31 @@ export default class NPMPackage extends Vue {
     }
 
     & > .detail {
+      display: grid;
       grid-area: detail;
+      grid-template:
+        'version' auto
+        'updated' auto
+        'link'    auto
+        /auto;
+
+      @media ($sp) {
+        grid-template:
+          'version  .       link'     auto
+          'updated  updated updated'  auto
+          /auto     1fr     auto;
+      }
     }
 
     & > .detail > .version {
       font-size: $font-md;
+      grid-area: version;
     }
 
     & > .detail > .updated {
       font-size: $font-sm;
-      margin-top: 6px;
+      grid-area: updated;
+      margin-top: 8px;
       opacity: 0.7;
     }
 
@@ -142,7 +157,11 @@ export default class NPMPackage extends Vue {
       color: $_npm;
       display: inline-block;
       font-size: $font-md;
-      margin-top: 12px;
+      grid-area: link;
+
+      @media ($pc) {
+        margin-top: 12px;
+      }
     }
 
     & > .detail > .link:hover {
@@ -151,6 +170,10 @@ export default class NPMPackage extends Vue {
 
     & > .description {
       grid-area: description;
+
+      @media ($sp) {
+        margin-top: 20px;
+      }
     }
 
     /* stylelint-disable-next-line rscss/no-descendant-combinator */
