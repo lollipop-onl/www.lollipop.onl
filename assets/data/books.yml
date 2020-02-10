@@ -1,0 +1,62 @@
+- id: 1
+  title: フロントエンドエンジニアのためのGitHub Actionsレシピ
+  author: ロリポップランチャー
+  published: 技術書典8 Day2
+  cover: https://placehold.jp/320x320.png
+  price: 1000
+  flags:
+    dlc: true
+    ebook: true
+    book: true
+  ebookUrl: https://pixiv.co.jp
+  lead: |
+    フロントエンドの開発には、自動化すると効率が良くなるタスクがたくさん存在します。
+    本書ではいくつかのタスクをGitHub Actionsで自動化するワークフローのレシピをご紹介します。
+  body: |
+    目次：
+    第１章　GitHub Actionsをはじめよう
+    　GitHub Actionsの基本的な機能や料金、使い方をご紹介します。
+
+    第２章　ESLintのチェックを自動化しよう
+    　ESLintによるチェックをワークフローで自動化します。
+    　更に、自動修正された差分をブランチにPushする機能の設定までをご紹介します。
+
+    第３章　GitHub Pagesへのデプロイを自動化しよう
+    　GitHub Pagesへのデプロイを自動化するワークフローをご紹介します。
+
+    第４章　Pull RequestのプレビューをS3へデプロイしよう
+    　各Pull Requestの内容をS3へ個別にデプロイしてそれぞれプレビューできる機能を作成します。
+    　AWS S3の基本的な使い方からGitHubコンテキストまで幅広くご紹介します。
+
+    第５章　TestCafeのE2Eテストを自動化しよう
+    　E2Eツール、TestCafeを使ったE2Eテスト（End to Endテスト）を自動化するワークフローを作成します。
+    　また、テストに失敗した際のスクリーンショットをアーティファクトに登録する機能もご紹介します。
+
+    付録Ａ　ワークフローファイル
+    　本編で紹介するワークフローファイルの他に、紹介した内容を応用したワークフローファイルもご紹介します。
+
+    付録Ｂ　GitHub Actions用語集
+    　GitHub Actionsのドキュメントに記載されている専門用語をまとめました。
+
+    付録Ｃ　コンテキストと環境変数
+    　GitHub Actionsが提供するコンテキストと式、環境変数の内容を実際の出力例と併せてまとめました。
+- id: 2
+  title: Stylistic ESLint Rules
+  author: ロリポップランチャー
+  published: 技術書典8 Day2 (2020/03/01)
+  cover: https://placehold.jp/320x320.png
+  price: 1000
+  flags:
+    dlc: true
+    ebook: true
+    book: false
+  ebookUrl: https://pixiv.co.jp
+  lead: |
+    ESLintルールの中から、コードの「スタイル」をチェックする自動修正可能なルールをまとめました。
+  body: |
+    ESLintルールの中から、コードの「スタイル」をチェックする自動修正可能なルールをまとめた本。
+
+    自作ルールセットでPrettierを超えてゆけ。
+
+    ★普通に落とす可能性アリ
+

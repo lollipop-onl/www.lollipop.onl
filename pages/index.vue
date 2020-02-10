@@ -13,7 +13,8 @@ div
           img.icon(src="@/assets/images/npm-favicon.svg" alt="")
         NPMPackageList(:npmPackages="npmPackages")
       PageSection.section(title="Web tools")
-      PageSection.section(title="Publications")
+      PageSection.section(title="Books")
+        BookItemList(:books="books")
   TheFooter
 </template>
 
@@ -26,7 +27,9 @@ import QiitaItemList from '@/components/QiitaItemList.vue';
 import MyProfile from '@/components/MyProfile.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import NPMPackageList from '@/components/NPMPackageList.vue';
+import BookItemList from "@/components/BookItemList.vue";
 import profile from '@/assets/data/profile.yml';
+import books from '@/assets/data/books.yml';
 import { version } from '@@/package.json';
 import { IQiitaPostItem } from '@/types/qiita';
 import { INPMPackage } from "@/types/npm";
@@ -37,6 +40,7 @@ import { INPMPackage } from "@/types/npm";
     QiitaItemList,
     NPMPackageList,
     MyProfile,
+    BookItemList,
     TheFooter,
   },
 })
@@ -58,6 +62,11 @@ export default class IndexPage extends Vue {
   /** プロフィール */
   get profile() {
     return profile;
+  }
+
+  /** 出版物 */
+  get books() {
+    return books;
   }
 
   /** ライフサイクル */
