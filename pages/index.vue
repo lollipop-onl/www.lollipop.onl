@@ -71,6 +71,10 @@ export default class IndexPage extends Vue {
 
   /** ライフサイクル */
   async asyncData({ $axios }: Context): Promise<any> {
+    if (process.client) {
+      return;
+    }
+
     const { QIITA_ACCESS_TOKEN } = process.env;
 
     let qiitaItems: Array<any> = [];
