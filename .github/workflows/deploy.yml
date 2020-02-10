@@ -30,11 +30,11 @@ jobs:
       - run: yarn build
         env:
           QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
-      - uses: peaceiris/actions-gh-pages@master
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./dist
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
       - run: git pull origin `git rev-parse --abbrev-ref HEAD`
       - run: git push origin --tags
       - run: git push origin HEAD:${GITHUB_REF}
