@@ -67,8 +67,9 @@ const config: Configuration = {
 
 module.exports = config;
 
+/** 動的なパスの一覧を取得する */
 function getDynamicRoutes() {
-  const books = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'src/assets/data/books.yml'), 'utf8'));
+  const books = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'assets/data/books.yml'), 'utf8'));
   const bookRoutes = books.map(({ id }: any) => `/book/${id}`);
 
   return [
