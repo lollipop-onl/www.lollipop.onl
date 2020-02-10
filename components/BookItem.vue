@@ -1,5 +1,5 @@
 <template lang="pug">
-  nuxt-link.book-item(to="#")
+  nuxt-link.book-item(:to="`/book/${book.id}`")
     img.cover(:src="book.cover" alt="書籍カバー")
     .details
       .title

@@ -1,5 +1,7 @@
 import { Configuration } from '@nuxt/types';
 import path from 'path';
+import fs from 'fs';
+import yaml from 'js-yaml';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -28,6 +30,9 @@ const config: Configuration = {
     },
   },
   buildModules: ['@nuxt/typescript-build'],
+  generate: {
+    routes: getDynamicRoutes(),
+  },
   head: {
     title: 'www.lollipop.onl',
     meta: [
@@ -61,3 +66,12 @@ const config: Configuration = {
 };
 
 module.exports = config;
+
+function getDynamicRoutes() {
+  const books = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'src/assets/data/books.yml'), 'utf8'));
+  const bookRoutes = books.map(({ id }: any) => `/book/${id}`);
+
+  return [
+    ...bookRoutes,
+  ];
+}

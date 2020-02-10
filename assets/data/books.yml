@@ -1,4 +1,4 @@
-- id: 1
+- id: abcd1234
   title: フロントエンドエンジニアのためのGitHub Actionsレシピ
   author: ロリポップランチャー
   published: 技術書典8 Day2
@@ -40,7 +40,7 @@
 
     付録Ｃ　コンテキストと環境変数
     　GitHub Actionsが提供するコンテキストと式、環境変数の内容を実際の出力例と併せてまとめました。
-- id: 2
+- id: xyz000
   title: Stylistic ESLint Rules
   author: ロリポップランチャー
   published: 技術書典8 Day2 (2020/03/01)
