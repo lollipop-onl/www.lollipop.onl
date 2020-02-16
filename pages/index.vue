@@ -14,6 +14,8 @@ div
         NPMPackageList(:npmPackages="npmPackages")
       PageSection.section(title="Web tools")
       PageSection.section(title="Books")
+        template(v-slot:icon)
+          img.icon(src="https://placehold.jp/320x320.png" alt="")
         BookItemList(:books="books")
   TheFooter
 </template>

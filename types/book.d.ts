@@ -2,15 +2,13 @@
 export interface IBook {
   id: string;
   title: string;
+  subtitle?: string;
   author: string;
   published: string;
   cover: string;
   price: string;
-  flags: {
-    dlc: boolean;
-    ebook: boolean;
-    book: boolean;
-  },
-  ebookUrl: string;
-  body: string;
+  dlcUrl: string;
+  boothBookUrl: string;
+  boothDownloadUrl: string;
+  lead: string;
 }
