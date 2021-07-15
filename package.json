@@ -29,7 +29,7 @@
     "nuxt-property-decorator": "^2.5.0",
     "pug": "^2.0.4",
     "reset.css": "^2.0.2",
-    "sanitize-html": "^1.21.1"
+    "sanitize-html": "^2.3.2"
   },
   "devDependencies": {
     "@lollipop-onl/axios-logger": "^0.1.11",
