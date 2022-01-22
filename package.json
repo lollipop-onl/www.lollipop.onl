@@ -1,0 +1,11 @@
+{
+  "name": "www.lollipop.onl",
+  "version": "1.0.0",
+  "author": "lollipop-onl <lollipop@simochee.net>",
+  "private": true,
+  "repository": "git@github.com:lollipop-onl/www.lollipop.onl.git",
+  "workspaces": ["packages/*"],
+  "volta": {
+    "node": "16.13.2"
+  }
+}
